@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block  nav%}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'tracker-update' tracker.id %}">Изменить</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'tracker-delete' tracker.id %}">удалить</a>
+      </li>
+{% endblock %}
+{%  block content %}
+
+
+
+    <h1>Товар № {{ tracker.id }}</h1>
+    <p>Название: {{ tracker.title }}</p>
+    <p>Описание: {{ tracker.description }}</p>
+    <p>Категория: {{ tracker.category }}</p>
+    <p>Остаток: {{ tracker.reminder }}</p>
+    <p>Цена: {{ tracker.price }} $</p>
+{% endblock content %}
