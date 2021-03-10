@@ -1,3 +1,47 @@
 from django.db import models
 
 # Create your models here.
+# STATUS_CHOICES = [('new', 'Новая'), ('in_progress', 'В процессе'), ('done', 'Сделано')]
+# TASK_CHOICES = [('task', 'задача'), ('bug', 'ошибка'), ('Enhancement', 'улучшение')]
+
+
+class Status(models.Model):
+    name = models.CharField(max_length=3000, null=False, blank=False)
+
+
+class Type(models.Model):
+    name = models.CharField(max_length=3000, null=False, blank=False)
+
+
+class BaseModel(models.Model):
+    created_ad = models.DateTimeField(auto_now_add=True)
+    update_ad = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class Tracker(BaseModel):
+    title = models.CharField(max_length=3000, null=False, blank=False)
+    detailed_description = models.CharField(max_length=3000, null=True, blank=True)
+    status = models.ForeignKey('webapp.Status', null=True, related_name="trackers", blank=True, on_delete=models.PROTECT)
+    type = models.ForeignKey('webapp.Type',  null=True, related_name="trackers", blank=True, on_delete=models.PROTECT)
+    date = models.DateField(null=True, blank=True)
+
+    class Meta:
+        db_table = 'trackers'
+        verbose_name = 'Задача'
+        verbose_name_plural = 'Задачи'
+
+
+# class comment(BaseModel):
+#     tracker = models.ForeignKey('webapp.Tracker', on_delete=models.CASCADE,
+#                                 related_name='comments',
+#                                 verbose_name='Статус')
+#     comment = models.CharField(max_length=200, verbose_name='Комментарий', null=False, blank=False)
+#     title = models.CharField(max_length=150, null=False, blank=False)
+#
+#     class Meta:
+#         db_table = 'comments'
+#         verbose_name = 'Комментарий'
+#         verbose_name_plural = 'Комментарии'
