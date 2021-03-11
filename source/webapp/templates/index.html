@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Продукты</h1>
+    <h1>Трейкер Задач</h1>
     {% if not trackers %}
-        <h2>Нет продуктов</h2>
+        <h2>Нет задач</h2>
     {% endif %}
     {% for tracker in trackers %}
             <p>{{ tracker.category }}: <a href="{% url "tracker-view" tracker.id%}">{{ tracker.title }}</a></p>
