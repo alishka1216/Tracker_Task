@@ -14,15 +14,15 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['tracker'] = Tracker.objects.all()
+        kwargs['trackers'] = Tracker.objects.all()
         return super().get_context_data(**kwargs)
 
 
 class TrackerView(TemplateView):
-    template_name = 'article_view.html'
+    template_name = 'tracker_view.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['tracker'] = get_object_or_404(Article, id=kwargs.get('pk'))
+        kwargs['tracker'] = get_object_or_404(Tracker, id=kwargs.get('pk'))
         return super().get_context_data(**kwargs)
 
 
@@ -37,11 +37,11 @@ class TrackerCreateView(TemplateView):
     def post(self, request, **kwargs):
         form = TrackerForm(data=request.POST)
         if form.is_valid():
-            tracker = Tracker.object.create(
+            tracker = Tracker.objects.create(
                 title=form.cleaned_data.get('title'),
                 status=form.cleaned_data.get('status'),
                 type=form.cleaned_data.get('type'),
-                detailed_description=form.cleaned_data.get('detailed_description'),
+                description=form.cleaned_data.get('description')
             )
             return redirect('tracker-view', pk=tracker.pk)
 
@@ -55,7 +55,7 @@ class TrackerUpdateView(TemplateView):
         tracker = get_object_or_404(Tracker, pk=kwargs.get('pk'))
         form = TrackerForm(initial={
             'title': tracker.title,
-            'detail_description': tracker.detailed_description,
+            'description': tracker.description,
             'status': tracker.status,
             'type': tracker.type
         }
@@ -70,7 +70,7 @@ class TrackerUpdateView(TemplateView):
         if form.is_valid():
             tracker.title = form.cleaned_data.get('title'),
             tracker.status = form.cleaned_data.get('status'),
-            tracker.detailed_description = form.cleaned_data.get('detailed_description'),
+            tracker.description = form.cleaned_data.get('description'),
             tracker.type = form.cleaned_data.get('type')
             tracker.save()
 
@@ -81,11 +81,6 @@ class TrackerUpdateView(TemplateView):
 
 class TrackerDeleteView(TemplateView):
     template_name = 'tracker_delete.html'
-
-    def get_context_data(self, **kwargs):
-        tracker = get_object_or_404(Tracker, pk=kwargs.get('pk'))
-        kwargs["pk"] = tracker.pk
-        return super().get_context_data(**kwargs)
 
     def post(self, request, **kwargs):
         tracker = get_object_or_404(Tracker, pk=kwargs.get('pk'))

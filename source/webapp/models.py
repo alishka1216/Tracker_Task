@@ -1,16 +1,18 @@
 from django.db import models
 
-# Create your models here.
-# STATUS_CHOICES = [('new', 'Новая'), ('in_progress', 'В процессе'), ('done', 'Сделано')]
-# TASK_CHOICES = [('task', 'задача'), ('bug', 'ошибка'), ('Enhancement', 'улучшение')]
-
 
 class Status(models.Model):
     name = models.CharField(max_length=3000, null=False, blank=False)
 
+    def __str__(self):
+        return self.name
+
 
 class Type(models.Model):
     name = models.CharField(max_length=3000, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
 
 
 class BaseModel(models.Model):
@@ -23,7 +25,7 @@ class BaseModel(models.Model):
 
 class Tracker(BaseModel):
     title = models.CharField(max_length=3000, null=False, blank=False)
-    detailed_description = models.CharField(max_length=3000, null=True, blank=True)
+    description = models.CharField(max_length=3000, null=True, blank=True)
     status = models.ForeignKey('webapp.Status', null=True, related_name="trackers", blank=True, on_delete=models.PROTECT)
     type = models.ForeignKey('webapp.Type',  null=True, related_name="trackers", blank=True, on_delete=models.PROTECT)
     date = models.DateField(null=True, blank=True)
