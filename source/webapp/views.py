@@ -40,9 +40,9 @@ class TrackerCreateView(TemplateView):
             tracker = Tracker.objects.create(
                 title=form.cleaned_data.get('title'),
                 status=form.cleaned_data.get('status'),
-                type=form.cleaned_data.get('type'),
                 description=form.cleaned_data.get('description')
             )
+            tracker.type.set(form.cleaned_data.get('type'))
             return redirect('tracker-view', pk=tracker.pk)
 
         return render(request, 'tracker_create.html', {'form': form})

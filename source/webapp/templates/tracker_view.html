@@ -15,6 +15,6 @@
     <h1>Товар № {{ tracker.id }}</h1>
     <p>Название: {{ tracker.title }}</p>
     <p>Описание: {{ tracker.description }}</p>
-    <p>Тип: {{ tracker.type }}</p>
+    <p>Тип: {% for type in tracker.type.all %}{{ type.name}} {% endfor %}</p>
     <p>Статус: {{ tracker.status }} </p>
 {% endblock content %}
