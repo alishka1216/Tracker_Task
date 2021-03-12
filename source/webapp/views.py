@@ -30,8 +30,7 @@ class TrackerCreateView(TemplateView):
     template_name = 'tracker_create.html'
 
     def get_context_data(self, **kwargs):
-        form = TrackerForm()
-        kwargs['form'] = form
+        kwargs['form'] = TrackerForm()
         return super().get_context_data(**kwargs)
 
     def post(self, request, **kwargs):
@@ -57,7 +56,7 @@ class TrackerUpdateView(TemplateView):
             'title': tracker.title,
             'description': tracker.description,
             'status': tracker.status,
-            'type': tracker.type
+            'type': tracker.type.all()
         }
         )
         kwargs['form'] = form
@@ -68,10 +67,10 @@ class TrackerUpdateView(TemplateView):
         tracker = get_object_or_404(Tracker, pk=kwargs.get('pk'))
         form = TrackerForm(data=request.POST)
         if form.is_valid():
-            tracker.title = form.cleaned_data.get('title'),
-            tracker.status = form.cleaned_data.get('status'),
-            tracker.description = form.cleaned_data.get('description'),
-            tracker.type = form.cleaned_data.get('type')
+            tracker.title = form.cleaned_data.get('title')
+            tracker.status = form.cleaned_data.get('status')
+            tracker.description = form.cleaned_data.get('description')
+            tracker.type.set(form.cleaned_data.get('type'))
             tracker.save()
 
             return redirect('tracker-view', pk=tracker.pk)
