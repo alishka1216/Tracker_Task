@@ -1,11 +1,10 @@
 from django import forms
-from django.core.validators import MinValueValidator
-from webapp.models import Status, Type
+from django.core.validators import MinValueValidator, ValidationError
+from webapp.models import Status, Type, Tracker
 
 
-class TrackerForm(forms.Form):
+class TrackerForm(forms.ModelForm):
+    class Meta:
+        model = Tracker
+        fields = ['title', 'description', 'status', 'type']
 
-    title = forms.CharField(max_length=120, required=True)
-    description = forms.CharField(max_length=3000, required=True, widget=forms.Textarea)
-    status = forms.ModelChoiceField(queryset=Status.objects.all(), required=True,  initial='new')
-    type = forms.ModelMultipleChoiceField(required=False, label='Типы', queryset=Type.objects.all())
