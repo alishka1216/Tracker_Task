@@ -17,4 +17,5 @@
     <p>Описание: {{ tracker.description }}</p>
     <p>Тип: {% for type in tracker.type.all %}{{ type.name}} {% endfor %}</p>
     <p>Статус: {{ tracker.status }} </p>
+    <p>время: {{ tracker.created_ad }}</p>
 {% endblock content %}

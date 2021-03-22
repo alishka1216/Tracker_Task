@@ -1,0 +1,19 @@
+
+№1
+now = datetime.now()
+lastmonth = now - timedelta(days=30)
+Tracker.objects.filter(update_ad__gte=lastmonth, status__name='сделано')
+
+
+
+
+
+ №2
+ Tracker.objects.filter( status__name__in=['новый', 'сделано'], type__name__in=['задача', 'выполено'])
+
+ №3
+q_1 = Q(type__name='ошибка')
+q_2 = Q(status__name='выполнено')
+q_3 = Q(title__icontains='ошибка')
+
+Tracker.objects.filter((q_3 | q_1) & ~(q_2))

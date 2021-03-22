@@ -26,7 +26,7 @@ class BaseModel(models.Model):
 
 class Tracker(BaseModel):
     title = models.CharField(max_length=3000, null=False, blank=False, validators=(MinLengthValidator(5),))
-    description = models.TextField(max_length=3000, null=True, blank=True)
+    description = models.TextField(max_length=3000, null=True, blank=True, validators=(MinLengthValidator(5),))
     status = models.ForeignKey('webapp.Status', null=True, related_name="trackers", blank=True, on_delete=models.PROTECT)
     type = models.ManyToManyField('webapp.Type',  null=True, related_name="trackers", blank=True)
     date = models.DateField(null=True, blank=True)
@@ -38,14 +38,7 @@ class Tracker(BaseModel):
 
 
 
-# class comment(BaseModel):
-#     tracker = models.ForeignKey('webapp.Tracker', on_delete=models.CASCADE,
-#                                 related_name='comments',
-#                                 verbose_name='Статус')
-#     comment = models.CharField(max_length=200, verbose_name='Комментарий', null=False, blank=False)
-#     title = models.CharField(max_length=150, null=False, blank=False)
-#
-#     class Meta:
-#         db_table = 'comments'
-#         verbose_name = 'Комментарий'
-#         verbose_name_plural = 'Комментарии'
+
+
+
+
