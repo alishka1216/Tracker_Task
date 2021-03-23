@@ -4,10 +4,6 @@ now = datetime.now()
 lastmonth = now - timedelta(days=30)
 Tracker.objects.filter(update_ad__gte=lastmonth, status__name='сделано')
 
-
-
-
-
  №2
  Tracker.objects.filter( status__name__in=['новый', 'сделано'], type__name__in=['задача', 'выполено'])
 
