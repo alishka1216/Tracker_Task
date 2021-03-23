@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <form action="{% url 'tracker-add' %}" method="post">
-    {% include "tracker_form.html" with button_text='Send' %}
+    {% include "partial/form.html" with button_text='Send' %}
 </form>
 {% endblock  %}
