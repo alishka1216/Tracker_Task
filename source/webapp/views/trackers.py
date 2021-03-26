@@ -49,7 +49,7 @@ class IndexView(ListView):
 
 
 class TrackerView(TemplateView):
-    template_name = 'trackers/tracker_view.html'
+    template_name = 'trackers/view.html'
 
     def get_context_data(self, **kwargs):
         kwargs['tracker'] = get_object_or_404(Tracker, id=kwargs.get('pk'))
@@ -74,7 +74,7 @@ class CreateTrackerView(CustomFormView):
         return super().form_valid(form)
 
 class TrackerUpdateView(TemplateView):
-    template_name = 'trackers/tracker_update.html'
+    template_name = 'trackers/update.html'
 
     def get_context_data(self, **kwargs):
         tracker = get_object_or_404(Tracker, pk=kwargs.get('pk'))
@@ -101,16 +101,18 @@ class TrackerUpdateView(TemplateView):
 
             return redirect('tracker-view', pk=tracker.pk)
 
-        return render(request, 'trackers/tracker_update.html', {'form': form, "tracker": tracker})
+        return render(request, 'trackers/update.html', {'form': form, "tracker": tracker})
 
 
 class TrackerDeleteView(TemplateView):
-    template_name = 'trackers/tracker_delete.html'
+    template_name = 'trackers/delete.html'
 
     def post(self, request, **kwargs):
         tracker = get_object_or_404(Tracker, pk=kwargs.get('pk'))
         tracker.delete()
         return redirect('tracker-list')
+
+
 
 
 
