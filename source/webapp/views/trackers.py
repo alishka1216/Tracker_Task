@@ -62,7 +62,7 @@ class TrackerView(TemplateView):
 
 
 class CreateTrackerView(CustomFormView):
-    template_name = 'tracker_create.html'
+    template_name = 'trackers/create.html'
     form_class = TrackerForm
     redirect_url = 'tracker-list'
 

@@ -5,7 +5,7 @@
     {% if not trackers %}
         <h2>Нет задач</h2>
     {% else %}
-        {% include 'partial/search_form.html'%}
+        {% include 'partial/search_form.html' %}
     {% endif %}
     {% for tracker in trackers %}
             <p>{{ tracker.category }}: <a href="{% url "tracker-view" tracker.id%}">{{ tracker.title }}</a></p>
