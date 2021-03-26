@@ -47,10 +47,6 @@ class IndexView(ListView):
         return queryset
 
 
-    # def get_context_data(self, **kwargs):
-    #     kwargs['trackers'] = Tracker.objects.all())
-    #     return super().get_context_data(**kwargs)
-
 
 class TrackerView(TemplateView):
     template_name = 'trackers/tracker_view.html'
@@ -76,65 +72,6 @@ class CreateTrackerView(CustomFormView):
         tracker.type.set(type)
 
         return super().form_valid(form)
-
-# class TrackerCreateView(TemplateView):
-#     template_name = 'tracker_create.html'
-#
-#     def get_context_data(self, **kwargs):
-#         kwargs['form'] = TrackerForm()
-#         return super().get_context_data(**kwargs)
-#
-#     def post(self, request, **kwargs):
-#         form = TrackerForm(data=request.POST)
-#         if form.is_valid():
-#             tracker = Tracker.objects.create(
-#                 title=form.cleaned_data.get('title'),
-#                 status=form.cleaned_data.get('status'),
-#                 description=form.cleaned_data.get('description')
-#             )
-#             tracker.type.set(form.cleaned_data.get('type'))
-#             return redirect('tracker-view', pk=tracker.pk)
-#
-#         return render(request, 'tracker_create.html', {'form': form})
-#
-
-#
-# class TrackerUpdateView(FormView):
-#     form_class = TrackerForm
-#     template_name = 'tracker_update.html'
-#
-#     def dispatch(self, request, *args, **kwargs):
-#         self.tracker = self.get_object()
-#         return super().dispatch(self, request, *args, **kwargs)
-#
-#     def get_initial(self):
-#         return super().get_initial()
-#
-#     def get_form_kwargs(self):
-#         kwargs = super().get_form_kwargs()
-#         kwargs['instance'] = self.tracker
-#         return kwargs
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['tracker'] = self.tracker
-#         return context
-#
-#     def get_object(self):
-#         tracker = get_object_or_404(
-#             Tracker, id=self.kwargs.get('pk'))
-#         return tracker
-#
-#     def form_valid(self, form):
-#         tags = form.cleaned_data.pop('tags')
-#         form.save()
-#         self.tracker.tags.set(tags)
-#         return super().form_valid(form)
-#
-#     def get_success_url(self):
-#         return reverse('tracker-view', kwargs={'pk': self.kwargs.get('pk')})
-
-
 
 class TrackerUpdateView(TemplateView):
     template_name = 'trackers/tracker_update.html'

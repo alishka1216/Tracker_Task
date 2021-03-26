@@ -4,7 +4,6 @@ from django.urls import path
 from webapp.views import (
     IndexView,
     TrackerView,
-    RedirectView,
     TrackerUpdateView,
     TrackerDeleteView,
     CreateTrackerView,
