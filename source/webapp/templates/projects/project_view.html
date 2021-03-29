@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block  nav%}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'tracker-update' tracker.id %}">Изменить</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'tracker-delete' tracker.id %}">удалить</a>
+      </li>
+{% endblock %}
+{%  block content %}
+
+
+
+    <h1>Проект № {{ project.id }}</h1>
+    <p>Название: {{ project.title }}</p>
+    <p>Описание: {{ project.description }}</p>
+    <p>время: {{ project.created_ad }}</p>
+    {% if not trackers %}
+        <h2>Нет задач</h2>
+    {% else %}
+        p.project_trackers.all
+    {% endif %}
+
+{% endblock content %}
