@@ -12,7 +12,7 @@ class TrackerForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'description', 'date']
+        fields = ['title', 'description', 'date', 'date_end']
         
         
 class SearchForm(forms.Form):

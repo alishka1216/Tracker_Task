@@ -13,23 +13,23 @@ class ProjectList(ListView):
     template_name = 'projects/project_index.html'
     model = Project
     context_object_name = 'projects'
-    ordering = ('title', '-created_ad')
+    ordering = ('title',)
     paginate_by = 10
     paginate_orphans = 3
-
 
 
 class ProjectView(DetailView):
     template_name = 'projects/project_view.html'
     model = Project
-    context_object_name = 'projects'
+    context_object_name = 'project'
 
 
 class ProjectCreate(CreateView):
-    template_name = 'project/project_create.html'
+    template_name = 'projects/project_create.html'
     model = Project
     form_class = ProjectForm
 
-    def get_redirect_url(self):
-        return reverse('project_view', kwargs={'pk': self.object.pk})
+    # success_url = 'project-view'
 
+    def get_success_url(self):
+        return reverse('project-view', kwargs={'pk': self.object.pk})

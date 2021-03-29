@@ -44,6 +44,7 @@ class Project(BaseModel):
     title = models.CharField(max_length=200, null=False, blank=False)
     description = models.TextField(max_length=3000, null=True, blank=True)
     date = models.DateField(null=False, blank=False)
+    date_end = models.DateField(null=True, blank=True)
 
     class Meta:
         db_table = 'projects'

@@ -12,10 +12,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{% url "tracker-list" %}" >Список задач</a>
+          <a class="nav-link active" aria-current="page" href="{% url "project-list" %}" >Список проектов</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'tracker-add' %}">Добавить</a>
+          <a class="nav-link" href="{% url 'project-add' %}">Добавить проект</a>
       </li>
       {% block  nav%}{% endblock %}
     </ul>

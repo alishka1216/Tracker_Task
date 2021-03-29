@@ -5,3 +5,9 @@ from webapp.views.trackers import (
     TrackerUpdateView,
     TrackerDeleteView
 )
+
+from webapp.views.project import (
+    ProjectList,
+    ProjectView,
+    ProjectCreate
+)
