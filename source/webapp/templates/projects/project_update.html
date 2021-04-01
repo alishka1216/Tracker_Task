@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'project-update' tracker.id %}" method="post">
+    {% include "partial/form.html" with button_text='Send' %}
+</form>
+{% endblock  %}
