@@ -2,8 +2,14 @@
 {% extends "base.html" %}
 {% block  nav%}
 <li class="nav-item">
-<a class="nav-link" href="{% url 'tracker-add' %}">Добавить задачу</a><br>
+<a class="nav-link" href="{% url 'tracker-add' project.id %}">Добавить задачу</a><br>
 </li>
+<li class="nav-item">
+        <a class="nav-link" href="{% url 'project-update' project.id %}">Изменить проект</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'project-delete' project.id %}">Удалить проект</a>
+      </li>
 {% endblock %}
 {%  block content %}
 

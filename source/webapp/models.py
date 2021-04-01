@@ -29,7 +29,7 @@ class Tracker(BaseModel):
     description = models.TextField(max_length=3000, null=True, blank=True, validators=(MinLengthValidator(5),))
     status = models.ForeignKey('webapp.Status', null=True, related_name="trackers", blank=True,
                                on_delete=models.PROTECT)
-    type = models.ManyToManyField('webapp.Type', null=True, related_name="trackers", blank=True)
+    type = models.ManyToManyField('webapp.Type', related_name="trackers")
     date = models.DateField(null=True, blank=True)
     project = models.ForeignKey('webapp.Project', null=True, related_name="project_trackers", default=1,
                                 on_delete=models.CASCADE)

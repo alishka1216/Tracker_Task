@@ -9,5 +9,7 @@ from webapp.views.trackers import (
 from webapp.views.project import (
     ProjectList,
     ProjectView,
-    ProjectCreate
+    ProjectCreate,
+    ProjectUpdate,
+    ProjectDelete
 )

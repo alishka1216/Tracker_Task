@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import BaseModel, Tracker, Project
-from django.views.generic import View, TemplateView, RedirectView, FormView, ListView, DetailView, CreateView
+from django.views.generic import View, TemplateView, RedirectView, FormView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponseNotFound
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django.utils.http import urlencode
 from webapp.forms import TrackerForm, SearchForm, ProjectForm
@@ -29,7 +29,26 @@ class ProjectCreate(CreateView):
     model = Project
     form_class = ProjectForm
 
-    # success_url = 'project-view'
+    def get_success_url(self):
+        return reverse('project-view', kwargs={'pk': self.object.pk})
+
+
+class ProjectUpdate(UpdateView):
+    model = Project
+    template_name = 'projects/project_update.html'
+    form_class = ProjectForm
+    context_object_name = 'project'
 
     def get_success_url(self):
         return reverse('project-view', kwargs={'pk': self.object.pk})
+
+
+class ProjectDelete(DeleteView):
+    template_name = 'projects/project_delete.html'
+    model = Project
+    context_object_name = 'project'
+
+    success_url = reverse_lazy('project-list')
+
+
+

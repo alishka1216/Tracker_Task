@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Вы уверены, что хотите удалить задачу? {{ tracker.title }}</h2>
-    <form action="{% url 'project-delete' pk %}", method="POST">
+    <h2>Вы уверены, что хотите удалить задачу? {{ project.title }}</h2>
+    <form action="{% url 'project-delete' project.pk %}" method="POST">
         {% csrf_token %}
         <input class="btn btn-primary" type="submit" value="да">
     </form>
-    <a href="{% url "project-view" pk %}"> <input class="btn btn-primary mt-2" type="submit" value="отмена"></a>
+    <a href="{% url "project-view" project.pk %}"> <input class="btn btn-primary mt-2" type="submit" value="отмена"></a>
 {% endblock content %}
