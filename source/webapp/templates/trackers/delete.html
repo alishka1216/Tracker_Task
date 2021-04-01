@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Вы уверены, что хотите удалить задачу? {{ tracker.title }}</h2>
-    <form action="{% url 'tracker-delete' pk %}", method="POST">
+    <form action="{% url 'tracker-delete' tracker.id %}", method="POST">
         {% csrf_token %}
         <input class="btn btn-primary" type="submit" value="да">
     </form>
