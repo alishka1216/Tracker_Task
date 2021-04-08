@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-
+from accounts.views import login_view
 from webapp.views import (
     IndexView,
     TrackerView,
@@ -26,5 +26,6 @@ urlpatterns = [
     path('project/<int:pk>/', ProjectView.as_view(), name='project-view'),
     path('project/add/', ProjectCreate.as_view(), name='project-add'),
     path('project/update/<int:pk>/', ProjectUpdate.as_view(), name='project-update'),
-    path('project/delete/<int:pk>/', ProjectDelete.as_view(), name='project-delete')
+    path('project/delete/<int:pk>/', ProjectDelete.as_view(), name='project-delete'),
+    path('accounts/login', login_view, name='login')
     ]
