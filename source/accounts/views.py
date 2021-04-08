@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def login_view(request):
+def login_view(request, *args, **kwargs):
     context = {}
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -15,4 +15,11 @@ def login_view(request):
             return redirect('project-list')
         else:
             context['has_error'] = True
-    return render(request, 'login.html', context=context)
+    return render(request, 'registration /login.html', context=context)
+
+
+@login_required
+def logout_view(request, *args, **kwargs):
+    logout(request)
+    return redirect('project-list')
+

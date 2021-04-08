@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.utils.http import urlencode
 from webapp.forms import TrackerForm, SearchForm
 from webapp.base_view import CustomFormView, CustomListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexView(ListView):
@@ -24,7 +25,7 @@ class TrackerView(DetailView):
     context_object_name = 'tracker'
 
 
-class CreateTrackerView(CreateView):
+class CreateTrackerView(LoginRequiredMixin, CreateView):
     template_name = 'trackers/create.html'
     model = Tracker
     form_class = TrackerForm

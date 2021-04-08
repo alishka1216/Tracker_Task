@@ -1,22 +1,10 @@
 [
 {
-  "model": "webapp.project",
-  "pk": 1,
-  "fields": {
-    "created_ad": "2021-04-08T08:40:42.225Z",
-    "update_ad": "2021-04-08T08:40:42.225Z",
-    "title": "dsad",
-    "description": "dasdas",
-    "date": "1992-05-05",
-    "date_end": null
-  }
-},
-{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$A5IK6PGIhNLs$1ugIL79M6ZWrL/1c2m1JSU/ce27SsfimJPYarOBsSH4=",
-    "last_login": "2021-04-08T09:06:59.082Z",
+    "last_login": "2021-04-08T08:05:55.340Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
