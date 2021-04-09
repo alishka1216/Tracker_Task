@@ -15,11 +15,13 @@ def login_view(request, *args, **kwargs):
             return redirect('project-list')
         else:
             context['has_error'] = True
-    return render(request, 'registration /login.html', context=context)
+    return render(request, 'registration/login.html', context=context)
 
 
 @login_required
 def logout_view(request, *args, **kwargs):
     logout(request)
     return redirect('project-list')
+
+
 

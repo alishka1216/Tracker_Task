@@ -122,6 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'project-list'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'accounts:login'
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'accounts:login'

@@ -18,7 +18,7 @@ from webapp.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path('tracker/', IndexView.as_view(), name='tracker-list'),
     path('tracker/add/<int:pk>/', CreateTrackerView.as_view(), name='tracker-add'),
     path('tracker/<int:pk>/', TrackerView.as_view(), name='tracker-view'),
@@ -29,6 +29,5 @@ urlpatterns = [
     path('project/add/', ProjectCreate.as_view(), name='project-add'),
     path('project/update/<int:pk>/', ProjectUpdate.as_view(), name='project-update'),
     path('project/delete/<int:pk>/', ProjectDelete.as_view(), name='project-delete'),
-    path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout'),
+    path('accounts/', include('accounts.urls')),
     ]
