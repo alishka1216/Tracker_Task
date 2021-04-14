@@ -1,21 +1,28 @@
 
 {% extends "base.html" %}
-{% block  nav%}
-<li class="nav-item">
-<a class="nav-link" href="{% url 'tracker-add' project.id %}">Добавить задачу</a><br>
-</li>
-<li class="nav-item">
+    {{ perms.project }}
+{% block nav%}
+    {% if perms.webapp.add_tracker %}
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'tracker-add' project.id %}">Добавить задачу</a><br>
+        </li>
+        {% endif %}
+    {% if perms.webapp.change_project %}
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'project-update' project.id %}">Изменить проект</a>
-      </li>
-      <li class="nav-item">
+        </li>
+        {% endif %}
+    {% if perms.webapp.delete_project %}
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'project-delete' project.id %}">Удалить проект</a>
-      </li>
+        </li>
+        {% endif %}
 {% endblock %}
 {%  block content %}
 
 
-
     <h1>Проект № {{ project.id }}</h1>
+    <p>Автор: {{ project.author }}</p>
     <p>Название: {{ project.title }}</p>
     <p>Описание: {{ project.description }}</p>
     <p>дата начало проекта: {{ project.date }}</p>
@@ -25,5 +32,10 @@
     {% empty %}
         <h2>Нет задач</h2>
     {% endfor %}
+    {% for author in project.author.all %}
+        <p>{{author.username}}</p>
+        {% empty %}
+        <h2>Нет users</h2>
+        {% endfor %}
 
 {% endblock content %}

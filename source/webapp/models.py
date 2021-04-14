@@ -56,3 +56,9 @@ class Project(BaseModel):
         db_table = 'projects'
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
+        permissions = [
+            ('сan_have_piece_of_pizza', 'Может съесть кусочек пиццы')
+        ]
+
+
+

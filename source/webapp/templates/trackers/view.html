@@ -1,12 +1,17 @@
 
 {% extends "base.html" %}
+{{ perms.project }}
 {% block  nav%}
-      <li class="nav-item">
+    {% if perms.webapp.change_tracker %}
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'tracker-update' tracker.id %}">Изменить</a>
-      </li>
-      <li class="nav-item">
+        </li>
+    {% endif %}
+    {% if perms.webapp.delete_tracker %}
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'tracker-delete' tracker.id %}">удалить</a>
-      </li>
+        </li>
+    {% endif %}
 {% endblock %}
 {%  block content %}
 

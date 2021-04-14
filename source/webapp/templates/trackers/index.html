@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+{{ perms.project }}
+{% block menu %}
+    {% if perms.webapp.add_tracker %}
+        <li><a href="{% url "tracker-add" %}">Создать задачу</a></li>
+    {% endif %}
+{% endblock menu %}
+
 {% block content %}
     <h1>Трейкер Задач</h1>
     {% if not trackers %}

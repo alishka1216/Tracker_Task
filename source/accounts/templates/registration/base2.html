@@ -14,6 +14,7 @@
       <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url "project-list" %}" >Список проектов</a>
       </li>
+    {% block nav%}{% endblock %}
       <li class="nav-item">
           <a class="nav-link" href="{% url 'project-add' %}">Добавить проект</a>
       </li>
@@ -23,7 +24,7 @@
        {% else %}
            <li class="menu-right"><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}" class="nav-link">Вход</a></li>
        {% endif %}
-      {% block  nav%}{% endblock %}
+
     </ul>
 </nav>
  {% block content %}{% endblock content %}

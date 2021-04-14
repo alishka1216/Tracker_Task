@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+{{ perms.project }}
+{% block menu %}
+    {% if perms.webapp.add_project %}
+        <li><a href="{% url "project-add" %}">Создать проект</a></li>
+    {% endif %}
+{% endblock menu %}
+
 {% block content %}
     <h1>Список проектов</h1>
     {% if not projects %}
@@ -7,7 +14,7 @@
     {% else %}
     {% endif %}
     {% for project in projects %}
-            <p> <a href="{% url "project-view" project.id%}">{{ project.title }}</a></p>
+            <p> <a href="{% url "project-view" project.id%}">{{ project.author.all }}</a></p>
         {% endfor %}
     {% include 'partial/paginate.html' %}
 {% endblock content %}
