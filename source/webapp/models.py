@@ -1,5 +1,6 @@
 from django.db import models
 from webapp.validators import MinLengthValidator
+from django.contrib.auth import get_user_model
 
 
 class Status(models.Model):
@@ -45,6 +46,11 @@ class Project(BaseModel):
     description = models.TextField(max_length=3000, null=True, blank=True)
     date = models.DateField(null=False, blank=False)
     date_end = models.DateField(null=True, blank=True)
+    author = models.ManyToManyField(
+        get_user_model(),
+        null=True,
+        related_name='projects'
+    )
 
     class Meta:
         db_table = 'projects'
