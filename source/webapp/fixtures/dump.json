@@ -69,15 +69,72 @@
   }
 },
 {
+  "model": "webapp.tracker",
+  "pk": 3,
+  "fields": {
+    "created_ad": "2021-04-14T12:28:20.989Z",
+    "update_ad": "2021-04-14T12:28:20.989Z",
+    "title": "dsaddsadas",
+    "description": "dsadas",
+    "status": 2,
+    "date": null,
+    "project": 2,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.tracker",
+  "pk": 4,
+  "fields": {
+    "created_ad": "2021-04-15T09:56:56.227Z",
+    "update_ad": "2021-04-15T09:56:56.227Z",
+    "title": "DEVDEVDEV",
+    "description": "DEVDEVDEV",
+    "status": 2,
+    "date": null,
+    "project": 2,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
   "model": "webapp.project",
   "pk": 1,
   "fields": {
     "created_ad": "2021-04-08T08:40:42.225Z",
-    "update_ad": "2021-04-08T08:40:42.225Z",
+    "update_ad": "2021-04-15T09:50:36.725Z",
     "title": "dsad",
     "description": "dasdas",
     "date": "1992-05-05",
-    "date_end": null
+    "date_end": null,
+    "author": [
+      1,
+      6,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "created_ad": "2021-04-14T11:55:18.376Z",
+    "update_ad": "2021-04-15T10:05:33.664Z",
+    "title": "agagag",
+    "description": "agaga",
+    "date": "1992-12-12",
+    "date_end": "1996-12-12",
+    "author": [
+      1,
+      6,
+      7,
+      8
+    ]
   }
 }
 ]

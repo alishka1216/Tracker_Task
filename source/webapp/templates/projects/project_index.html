@@ -14,7 +14,7 @@
     {% else %}
     {% endif %}
     {% for project in projects %}
-            <p> <a href="{% url "project-view" project.id%}">{{ project.author.all }}</a></p>
+            <p> <a href="{% url "project-view" project.id%}">{{ project.title }}</a></p>
         {% endfor %}
     {% include 'partial/paginate.html' %}
 {% endblock content %}

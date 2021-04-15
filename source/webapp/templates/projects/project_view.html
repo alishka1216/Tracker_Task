@@ -17,23 +17,27 @@
         <a class="nav-link" href="{% url 'project-delete' project.id %}">Удалить проект</a>
         </li>
         {% endif %}
+{#    {% if user_add %}#}
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'user-add' project.id %}">Добавить пользователя</a>
+        </li>
+{#    {% endif %}#}
 {% endblock %}
 {%  block content %}
 
 
     <h1>Проект № {{ project.id }}</h1>
-    <p>Автор: {{ project.author }}</p>
     <p>Название: {{ project.title }}</p>
     <p>Описание: {{ project.description }}</p>
     <p>дата начало проекта: {{ project.date }}</p>
     <p>дата конец проекта: {{ project.date_end }}</p>
     {% for tracker in project.project_trackers.all %}
-        <a href="{% url 'tracker-view' tracker.pk %}">{{tracker.title}}</a>
+       <p>Задача: <a href="{% url 'tracker-view' tracker.pk %}"> {{tracker.title}}</p></a>
     {% empty %}
         <h2>Нет задач</h2>
     {% endfor %}
     {% for author in project.author.all %}
-        <p>{{author.username}}</p>
+        <p>Пользователь: {{author.username}}</p>
         {% empty %}
         <h2>Нет users</h2>
         {% endfor %}

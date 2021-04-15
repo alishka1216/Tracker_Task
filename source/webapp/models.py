@@ -48,7 +48,6 @@ class Project(BaseModel):
     date_end = models.DateField(null=True, blank=True)
     author = models.ManyToManyField(
         get_user_model(),
-        null=True,
         related_name='projects'
     )
 
@@ -57,7 +56,7 @@ class Project(BaseModel):
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
         permissions = [
-            ('сan_have_piece_of_pizza', 'Может съесть кусочек пиццы')
+            ('add_users', 'добавление пользователя')
         ]
 
 

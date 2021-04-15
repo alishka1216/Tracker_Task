@@ -1,10 +1,102 @@
 [
 {
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Project Manager",
+    "permissions": [
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_users",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracker",
+        "webapp",
+        "tracker"
+      ],
+      [
+        "change_tracker",
+        "webapp",
+        "tracker"
+      ],
+      [
+        "delete_tracker",
+        "webapp",
+        "tracker"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 4,
+  "fields": {
+    "name": "dev",
+    "permissions": [
+      [
+        "add_tracker",
+        "webapp",
+        "tracker"
+      ],
+      [
+        "change_tracker",
+        "webapp",
+        "tracker"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 5,
+  "fields": {
+    "name": "Team Lead",
+    "permissions": [
+      [
+        "add_users",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracker",
+        "webapp",
+        "tracker"
+      ],
+      [
+        "change_tracker",
+        "webapp",
+        "tracker"
+      ],
+      [
+        "delete_tracker",
+        "webapp",
+        "tracker"
+      ]
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$A5IK6PGIhNLs$1ugIL79M6ZWrL/1c2m1JSU/ce27SsfimJPYarOBsSH4=",
-    "last_login": "2021-04-09T13:36:31.792Z",
+    "last_login": "2021-04-15T10:07:07.314Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -19,55 +111,63 @@
 },
 {
   "model": "auth.user",
-  "pk": 2,
+  "pk": 6,
   "fields": {
-    "password": "pbkdf2_sha256$216000$WUF4IrzwTEHH$bmpziBmD9o7r3RUZIudBblTTp/cDYxODeothj84ANu8=",
-    "last_login": null,
+    "password": "pbkdf2_sha256$216000$ReYgdjVHwHzN$F7GD+ocau1W/Cf3JKPrEDKDCkhK5UxugwL1SktmjbF8=",
+    "last_login": "2021-04-15T10:05:16.485Z",
     "is_superuser": false,
-    "username": "ali",
-    "first_name": "ali",
-    "last_name": "ali",
-    "email": "alishka1216@gmail.com",
+    "username": "manager",
+    "first_name": "manager",
+    "last_name": "manager",
+    "email": "manager@gmail.com",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-04-09T11:52:05.456Z",
+    "date_joined": "2021-04-14T11:50:01Z",
+    "groups": [
+      [
+        "Project Manager"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$PvvNGz7DBDMl$23Kos1iaKdrSsbHGLk+woZmjZKMMSeWN7F5cKJB53z4=",
+    "last_login": "2021-04-15T10:01:28.354Z",
+    "is_superuser": false,
+    "username": "lead",
+    "first_name": "lead",
+    "last_name": "lead",
+    "email": "lead@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-14T11:50:30Z",
     "groups": [],
     "user_permissions": []
   }
 },
 {
   "model": "auth.user",
-  "pk": 3,
+  "pk": 8,
   "fields": {
-    "password": "pbkdf2_sha256$216000$n8aTw0NQocrm$7x20yQomo9jWJhwcncAOTZPgHzGd7vpnX9x0EMHsWZY=",
-    "last_login": null,
+    "password": "pbkdf2_sha256$216000$3aPiu1cgL58O$ZdvVwyi1Om2aDOwOhrb7nVQwO1bCxsn7DpX3W1cEaJM=",
+    "last_login": "2021-04-15T09:53:42.226Z",
     "is_superuser": false,
-    "username": "vasya3",
-    "first_name": "dsada",
-    "last_name": "admin",
-    "email": "adsa@das.com",
+    "username": "dev",
+    "first_name": "dev",
+    "last_name": "dev",
+    "email": "dev@gmail.com",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-04-09T12:03:46.065Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 4,
-  "fields": {
-    "password": "pbkdf2_sha256$216000$xvISPclLYNfi$CnUruoV+c7tFe7Dj+cupL56lWVy1SLT1VVgGgLkULSM=",
-    "last_login": "2021-04-09T12:27:37.694Z",
-    "is_superuser": false,
-    "username": "asd",
-    "first_name": "asd",
-    "last_name": "asd",
-    "email": "asd@gasd.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2021-04-09T12:27:26.301Z",
-    "groups": [],
+    "date_joined": "2021-04-14T11:52:28Z",
+    "groups": [
+      [
+        "dev"
+      ]
+    ],
     "user_permissions": []
   }
 }

@@ -10,7 +10,8 @@ from webapp.views import (
     ProjectView,
     ProjectCreate,
     ProjectUpdate,
-    ProjectDelete
+    ProjectDelete,
+    UserUpdateView
 )
 
 
@@ -28,5 +29,6 @@ urlpatterns = [
     path('project/add/', ProjectCreate.as_view(), name='project-add'),
     path('project/update/<int:pk>/', ProjectUpdate.as_view(), name='project-update'),
     path('project/delete/<int:pk>/', ProjectDelete.as_view(), name='project-delete'),
+    path('user/add/<int:pk>/', UserUpdateView.as_view(), name='user-add'),
     path('accounts/', include('accounts.urls')),
     ]
