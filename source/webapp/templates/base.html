@@ -14,18 +14,25 @@
       <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url "project-list" %}" >Список проектов</a>
       </li>
+    {% if perms.accounts.view_profile %}
+       <li class="nav-item"><a class="nav-link " href="{% url "accounts:user-list" %}">Список пользователей</a></li>
+    {% endif %}
           {% if perms.webapp.add_project %}
         <li class="nav-item"><a class="nav-link " href="{% url "project-add" %}">Создать проект</a></li>
     {% endif %}
     {% block  nav%}{% endblock %}
       {% if user.is_authenticated %}
-           {% block menu_links %}{% endblock %}
-           <li class="menu-right"><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}" class="nav-link">Выход</a></li>
+          <li class="menu-right"><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}" class="nav-link">Выход</a></li>
+                    <li class="menu-right"><a href="{% url 'accounts:user-detail' user.id %}" class="nav-link">Профиль</a></li>
+           <a class="nav-link ">{{ user.username }} online</a>
+          {% block menu_links %}{% endblock %}
        {% else %}
            <li class="menu-right"><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}" class="nav-link">Вход</a></li>
-       {% endif %}
-
+            <a class="nav-link">anonymous online</a>
+      {% endif %}
     </ul>
+
+
 </nav>
  {% block content %}{% endblock content %}
 

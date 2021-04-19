@@ -8,13 +8,5 @@
 {% endblock menu %}
 
 {% block content %}
-    <h1>Список проектов</h1>
-    {% if not projects %}
-        <h2>Нет проектов</h2>
-    {% else %}
-    {% endif %}
-    {% for project in projects %}
-            <p> <a href="{% url "project-view" project.id%}">{{ project.title }}</a></p>
-        {% endfor %}
-    {% include 'partial/paginate.html' %}
+ {% include 'partial/project_list.html' %}
 {% endblock content %}

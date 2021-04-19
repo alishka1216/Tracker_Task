@@ -1,5 +1,7 @@
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 from webapp.views import (
     IndexView,
     TrackerView,
@@ -15,9 +17,9 @@ from webapp.views import (
 )
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     # path('accounts/', include('django.contrib.auth.urls')),
     path('tracker/', IndexView.as_view(), name='tracker-list'),
     path('tracker/add/<int:pk>/', CreateTrackerView.as_view(), name='tracker-add'),
@@ -31,4 +33,4 @@ urlpatterns = [
     path('project/delete/<int:pk>/', ProjectDelete.as_view(), name='project-delete'),
     path('user/add/<int:pk>/', UserUpdateView.as_view(), name='user-add'),
     path('accounts/', include('accounts.urls')),
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

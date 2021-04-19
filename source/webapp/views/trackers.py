@@ -65,7 +65,7 @@ class TrackerUpdateView(PermissionRequiredMixin,UpdateView):
         return reverse('tracker-view', kwargs={'pk': self.object.pk})
 
 
-class TrackerDeleteView(PermissionRequiredMixin,DeleteView):
+class TrackerDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'trackers/delete.html'
     model = Tracker
     context_object_name = 'tracker'

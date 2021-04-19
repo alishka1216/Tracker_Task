@@ -16,8 +16,8 @@ class ProjectList(ListView):
     model = Project
     context_object_name = 'projects'
     ordering = ('title',)
-    paginate_by = 10
-    paginate_orphans = 3
+    paginate_by = 5
+
 
 
 class ProjectView(DetailView):

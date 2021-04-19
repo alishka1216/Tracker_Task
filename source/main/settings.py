@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,3 +125,8 @@ LOGIN_REDIRECT_URL = 'project-list'
 LOGOUT_REDIRECT_URL = 'accounts:login'
 
 LOGIN_URL = 'accounts:login'
+
+#ДЛЯ КАРТИНОК
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL= '/uploads/'

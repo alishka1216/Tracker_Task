@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Вы уверены, что хотите удалить задачу? {{ project.title }}</h2>
+    <h2>Вы уверены, что хотите удалить проект? {{ project.title }}</h2>
     <form action="{% url 'project-delete' project.pk %}" method="POST">
         {% csrf_token %}
         <input class="btn btn-primary" type="submit" value="да">

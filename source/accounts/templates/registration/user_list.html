@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h4> Cписок пользователей</h4>
+ {% for profile in profiles %}
+        <a href="{% url "accounts:user-detail" profile.user.id %}"><p>{{profile.user.username}}</p></a>
+        {% empty %}
+        <h2>Нет users</h2>
+        {% endfor %}
+{% endblock %}

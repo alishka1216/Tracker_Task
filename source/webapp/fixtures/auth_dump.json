@@ -6,6 +6,11 @@
     "name": "Project Manager",
     "permissions": [
       [
+        "view_profile",
+        "accounts",
+        "profile"
+      ],
+      [
         "add_project",
         "webapp",
         "project"
@@ -69,6 +74,11 @@
     "name": "Team Lead",
     "permissions": [
       [
+        "view_profile",
+        "accounts",
+        "profile"
+      ],
+      [
         "add_users",
         "webapp",
         "project"
@@ -96,7 +106,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$A5IK6PGIhNLs$1ugIL79M6ZWrL/1c2m1JSU/ce27SsfimJPYarOBsSH4=",
-    "last_login": "2021-04-15T10:07:07.314Z",
+    "last_login": "2021-04-19T10:46:27.302Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -104,7 +114,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2021-04-08T08:05:47.237Z",
+    "date_joined": "2021-04-08T08:05:47Z",
     "groups": [],
     "user_permissions": []
   }
@@ -114,7 +124,7 @@
   "pk": 6,
   "fields": {
     "password": "pbkdf2_sha256$216000$ReYgdjVHwHzN$F7GD+ocau1W/Cf3JKPrEDKDCkhK5UxugwL1SktmjbF8=",
-    "last_login": "2021-04-15T10:05:16.485Z",
+    "last_login": "2021-04-16T12:58:02Z",
     "is_superuser": false,
     "username": "manager",
     "first_name": "manager",
@@ -136,7 +146,7 @@
   "pk": 7,
   "fields": {
     "password": "pbkdf2_sha256$216000$PvvNGz7DBDMl$23Kos1iaKdrSsbHGLk+woZmjZKMMSeWN7F5cKJB53z4=",
-    "last_login": "2021-04-15T10:01:28.354Z",
+    "last_login": "2021-04-19T11:05:22.115Z",
     "is_superuser": false,
     "username": "lead",
     "first_name": "lead",
@@ -145,7 +155,11 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2021-04-14T11:50:30Z",
-    "groups": [],
+    "groups": [
+      [
+        "Team Lead"
+      ]
+    ],
     "user_permissions": []
   }
 },
@@ -154,7 +168,7 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$216000$3aPiu1cgL58O$ZdvVwyi1Om2aDOwOhrb7nVQwO1bCxsn7DpX3W1cEaJM=",
-    "last_login": "2021-04-15T09:53:42.226Z",
+    "last_login": "2021-04-19T10:55:14.454Z",
     "is_superuser": false,
     "username": "dev",
     "first_name": "dev",

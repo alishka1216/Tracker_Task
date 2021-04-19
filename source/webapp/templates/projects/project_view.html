@@ -37,7 +37,7 @@
         <h2>Нет задач</h2>
     {% endfor %}
     {% for author in project.author.all %}
-        <p>Пользователь: {{author.username}}</p>
+        <a href="{% url "accounts:user-detail" author.id %}"><p>Пользователь: {{author.username}}</p></a>
         {% empty %}
         <h2>Нет users</h2>
         {% endfor %}
