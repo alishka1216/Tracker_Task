@@ -24,7 +24,7 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return self.user.username
+        return self. user.username
 
     class Meta:
         db_table = 'profiles'
